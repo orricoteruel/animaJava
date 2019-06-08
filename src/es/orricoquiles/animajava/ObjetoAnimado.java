@@ -10,13 +10,13 @@ public class ObjetoAnimado {
     int frameInicial;
     int frameFinal;
 
-    public ObjetoAnimado(ClipGrafico clipGrafico, int frameInicial, int duracion) {
+    public ObjetoAnimado(ClipGrafico clipGrafico, int frameInicial, double duracion) {
         if(clipGrafico.getImagen()==null) {
             clipGrafico.actualizaRender();
         }
         this.clipGrafico = clipGrafico;
         this.frameInicial = frameInicial;
-        this.frameFinal = frameInicial+duracion*FRAMESxSEGUNDO-1;
+        this.frameFinal = (int) Math.round(frameInicial + duracion * FRAMESxSEGUNDO - 1);
     }
 
     public void pintate(Animacion animacion, int frameActual) {

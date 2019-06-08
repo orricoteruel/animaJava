@@ -12,13 +12,21 @@ public class PruebaAnimacion {
         texto2.setColor(Color.BLUE)
                 .setPos(600,1200)
                 .escala(1.85)
-                .rota(30);
+                .rota(45);
+
+        ClipGrafico imagen = new ClipGrafico(new PNG("img\\computer.png"));
+        imagen.setPos(800, 300)
+                .escala(0.30)
+                .rota(-20);
+
 
 
         ObjetoAnimado textoAnimado=new ObjetoAnimado(texto,0,1);
         ObjetoAnimado textoAnimado2=new ObjetoAnimado(texto2,0,1);
+        ObjetoAnimado comp = new ObjetoAnimado(imagen, 0, 1.5);
         animacion.anyade(textoAnimado);
         animacion.anyade(textoAnimado2);
+        animacion.anyade(comp);
         animacion.generaFrames();
         System.out.println("Generando el Video");
         animacion.generaVideo();
