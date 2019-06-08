@@ -1,6 +1,5 @@
 package es.orricoquiles.animajava;
 
-import javax.sound.sampled.Clip;
 import java.awt.*;
 
 public class PruebaAnimacion {
@@ -21,7 +20,7 @@ public class PruebaAnimacion {
         animacion.anyade(textoAnimado);
         animacion.anyade(textoAnimado2);
         animacion.generaFrames();
-        System.out.println("Generando Video");
+        System.out.println("Generando el Video");
         animacion.generaVideo();
         //animacion.reproduceVideo();
     }
