@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
+import static es.orricoquiles.animajava.Constantes.ALTO_YOUTUBE;
+import static es.orricoquiles.animajava.Constantes.ANCHO_YOUTUBE;
+
 public class ClipGrafico {
 
   private Renderizable renderizable;
@@ -16,6 +19,7 @@ public class ClipGrafico {
 
   public ClipGrafico(Renderizable renderizable) {
     this.renderizable=renderizable;
+    actualizaRender();
   }
 
   public void actualizaRender() {
@@ -23,7 +27,10 @@ public class ClipGrafico {
   }
 
   public ClipGrafico rota(double angulo){
-    double rads = Math.toRadians(angulo);
+    if (imagen == null) {
+      actualizaRender();
+    }
+    double rads = Math.toRadians(-1 * angulo);
     double sin = Math.abs(Math.sin(rads)), cos = Math.abs(Math.cos(rads));
     int w = imagen.getWidth();
     int h = imagen.getHeight();
@@ -48,11 +55,15 @@ public class ClipGrafico {
   }
 
   public ClipGrafico escala(double factor){
+    return escala(factor, factor);
+  }
+
+  public ClipGrafico escala(double factorx, double factory) {
     if(imagen==null){
       actualizaRender();
     }
-    int newWidth = (int)Math.round(imagen.getWidth() * factor);
-    int newHeight = (int)Math.round(imagen.getHeight() * factor);
+    int newWidth = (int) Math.round(imagen.getWidth() * factorx);
+    int newHeight = (int) Math.round(imagen.getHeight() * factory);
     BufferedImage resized = new BufferedImage(newWidth, newHeight, imagen.getType());
     Graphics2D g = resized.createGraphics();
     g.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
@@ -64,17 +75,18 @@ public class ClipGrafico {
     return this;
   }
 
-
-
-
-  public ClipGrafico setColor(Color color) {
-    this.color = color;
+  public ClipGrafico colorize(Color color) {
+    BufferedImage dyed = new BufferedImage(imagen.getWidth(), imagen.getHeight(), imagen.getType());
+    Graphics2D g = dyed.createGraphics();
+    g.drawImage(imagen, 0, 0, null);
+    g.setComposite(AlphaComposite.SrcAtop);
+    g.setColor(color);
+    g.fillRect(0, 0, imagen.getWidth(), imagen.getHeight());
+    g.dispose();
+    imagen = dyed;
     return this;
   }
 
-  public Color getColor() {
-    return color;
-  }
 
   public ClipGrafico setPos(int x, int y) {
     this.x = x;
@@ -96,5 +108,13 @@ public class ClipGrafico {
 
   public int getY() {
     return y;
+  }
+
+  public ClipGrafico setPosCentro() {
+    int xcentro = ANCHO_YOUTUBE / 2;
+    int ycentro = ALTO_YOUTUBE / 2;
+    this.x = xcentro;
+    this.y = ycentro;
+    return this;
   }
 }

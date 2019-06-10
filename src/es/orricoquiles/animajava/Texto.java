@@ -28,9 +28,9 @@ public class Texto implements Renderizable {
         Rectangle2D bounds=fuente.getStringBounds(this.texto,frc3);
         BufferedImage bi=new BufferedImage((int)bounds.getWidth(),(int)bounds.getHeight(),BufferedImage.TYPE_INT_ARGB);
         Graphics2D g=bi.createGraphics();
-//        g.setColor(Color.ORANGE);
+        g.setColor(Color.WHITE);
 //        g.drawRect(0,0,bi.getWidth()-1,bi.getHeight()-1);
-        g.setPaint(clipGrafico.getColor());
+
         g.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS,
                 RenderingHints.VALUE_FRACTIONALMETRICS_ON);
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,

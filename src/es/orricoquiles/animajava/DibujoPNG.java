@@ -5,9 +5,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class PNG implements Renderizable {
+public class DibujoPNG implements Renderizable {
     String nombreFichero;
-    public PNG(String nombreFichero) {
+
+    public DibujoPNG(String nombreFichero) {
         this.nombreFichero=nombreFichero;
     }
 

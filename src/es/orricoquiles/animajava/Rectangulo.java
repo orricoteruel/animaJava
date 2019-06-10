@@ -19,9 +19,9 @@ public class Rectangulo implements Renderizable {
     public BufferedImage getBufferedImage(ClipGrafico clipGrafico) {
         BufferedImage bi=new BufferedImage(ancho+grosor*2,alto+grosor*2,BufferedImage.TYPE_INT_ARGB);
         Graphics2D g=bi.createGraphics();
-//        g.setColor(Color.ORANGE);
+//        g.colorize(Color.ORANGE);
 //        g.drawRect(0,0,bi.getWidth()-1,bi.getHeight()-1);
-        g.setPaint(clipGrafico.getColor());
+        g.setPaint(Color.WHITE);
         BasicStroke stroke = new BasicStroke(grosor);
         g.setStroke(stroke);
         g.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS,

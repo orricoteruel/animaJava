@@ -1,23 +1,26 @@
-package es.orricoquiles.animajava;
+package es.orricoquiles.animajava.es.orricoquiles.animajava.pruebas;
+
+import es.orricoquiles.animajava.*;
 
 import java.awt.*;
 
 public class PruebaAnimacion {
     public static void main(String[] args) {
-        Animacion animacion=Animacion.getInstance(Visualizacion.YOUTUBE);
+        Configuracion.setFps(60);
+        Configuracion.setVisualizacion(Visualizacion.MEDIUM);
+        Animacion animacion = Animacion.getInstance();
         ClipGrafico texto=new ClipGrafico(new Texto("Prueba con Renderizable"));
-        texto.setColor(Color.ORANGE)
+        texto.colorize(Color.ORANGE)
                 .setPos(600,600);
         ClipGrafico texto2=new ClipGrafico(new Texto("Una segunda prueba, Escalado"));
-        texto2.setColor(Color.BLUE)
+        texto2.colorize(Color.BLUE)
                 .setPos(600,1200)
-                .escala(1.85)
                 .rota(45);
 
-        ClipGrafico imagen = new ClipGrafico(new PNG("img\\computer.png"));
+        ClipGrafico imagen = new ClipGrafico(new DibujoPNG("img\\computer.png"));
         imagen.setPos(800, 300)
                 .escala(0.30)
-                .rota(-20);
+                .rota(65);
 
 
 
