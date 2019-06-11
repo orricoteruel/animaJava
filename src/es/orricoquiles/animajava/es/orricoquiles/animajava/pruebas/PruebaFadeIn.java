@@ -9,7 +9,7 @@ public class PruebaFadeIn {
         Configuracion.setFps(15);
         Configuracion.setResolucion(Visualizacion.SCRATCH);
         Animacion animacion = Animacion.getInstance();
-        ClipGrafico texto = new ClipGrafico(new Texto("Direccionamiento IP"));
+        ClipGrafico texto = new ClipGrafico(new Texto("Prueba de texto\n en líneas"));
         texto.colorize(Color.ORANGE)
                 .escala(4)
                 .setPosCentro();

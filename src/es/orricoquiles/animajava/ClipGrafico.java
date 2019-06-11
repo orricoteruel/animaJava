@@ -4,9 +4,6 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
-import static es.orricoquiles.animajava.Constantes.ALTO_YOUTUBE;
-import static es.orricoquiles.animajava.Constantes.ANCHO_YOUTUBE;
-
 public class ClipGrafico {
 
   private Renderizable renderizable;
@@ -111,8 +108,8 @@ public class ClipGrafico {
   }
 
   public ClipGrafico setPosCentro() {
-    int xcentro = ANCHO_YOUTUBE / 2;
-    int ycentro = ALTO_YOUTUBE / 2;
+    int xcentro = 0;
+    int ycentro = 0;
     this.x = xcentro;
     this.y = ycentro;
     return this;

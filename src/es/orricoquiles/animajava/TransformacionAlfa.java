@@ -31,6 +31,7 @@ public class TransformacionAlfa extends Transformacion {
         g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
                 (float) alfa));
         g2d.drawImage(original, 0, 0, null);
+        g2d.dispose();
         sprite.setImagen(conAlfa);
     }
 }

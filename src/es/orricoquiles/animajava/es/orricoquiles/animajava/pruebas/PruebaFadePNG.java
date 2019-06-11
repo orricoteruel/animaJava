@@ -7,13 +7,14 @@ import java.awt.*;
 public class PruebaFadePNG {
     public static void main(String[] args) {
         Configuracion.setFps(15);
-        Configuracion.setResolucion(Visualizacion.SCRATCH);
+        Configuracion.setResolucion(Visualizacion.MEDIUM);
         Animacion animacion = Animacion.getInstance();
         ClipGrafico PNG = new ClipGrafico(new DibujoPNG("img\\computer.png"))
-                .colorize(Color.green)
-                .setPosCentro();
+                .colorize(Color.PINK)
+                .setPosCentro()
+                .escala(2);
 
-        ObjetoAnimado ObjetoPNG = new ObjetoAnimado(PNG, 0, 8);
+        ObjetoAnimado ObjetoPNG = new ObjetoAnimado(PNG, 0, 4);
         ObjetoPNG.fadeIn();
         animacion.anyade(ObjetoPNG);
         animacion.generaFrames();

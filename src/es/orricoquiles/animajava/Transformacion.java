@@ -19,6 +19,6 @@ public abstract class Transformacion {
 
     public double interpola(double valorInicial, double valorFinal, int frameActual) {
         double fraccion = (frameActual - frameInicial) / (double) (frameFinal - frameInicial);
-        return (int) ((valorFinal - valorInicial) * interpolacion.opera(fraccion) + valorInicial);
+        return ((valorFinal - valorInicial) * interpolacion.opera(fraccion) + valorInicial);
     }
 }

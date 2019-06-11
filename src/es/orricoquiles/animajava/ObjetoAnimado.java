@@ -33,18 +33,18 @@ public class ObjetoAnimado {
                 t.transforma(sprite, frameActual - this.frameInicial);
             }
         }
+//
+//        if (animacion.getRelacion() == 1) {
+//            animacion.getGraficos().drawImage(sprite.getImagen(), sprite.getX(), sprite.getY(), null);
+//        } else {
 
-        if (animacion.getRelacion() == 1) {
-            animacion.getGraficos().drawImage(sprite.getImagen(), sprite.getX(), sprite.getY(), null);
-        } else {
-
-            int xReal = (int) Math.round(sprite.getX() * animacion.getRelacion());
-            int yReal = (int) Math.round(sprite.getY() * animacion.getRelacion());
+        int xReal = (int) Math.round(ANCHO_YOUTUBE * animacion.getRelacion() / 2 + sprite.getX() * animacion.getRelacion() - sprite.getImagen().getWidth() * animacion.getRelacion() / 2.0);
+        int yReal = (int) Math.round(ALTO_YOUTUBE * animacion.getRelacion() / 2 + sprite.getY() * animacion.getRelacion() - sprite.getImagen().getHeight() * animacion.getRelacion() / 2.0);
             int anchoReal = (int) Math.round(sprite.getImagen().getWidth() * animacion.getRelacion());
             int altoReal = (int) Math.round(sprite.getImagen().getHeight() * animacion.getRelacion());
             //System.out.println(xReal + "," + yReal + "   " + anchoReal + "x" + altoReal);
             animacion.getGraficos().drawImage(sprite.getImagen(), xReal, yReal, anchoReal, altoReal, null);
-        }
+        //}
     }
 
 
