@@ -28,14 +28,14 @@ public class TransformacionRotacion extends Transformacion {
         System.out.println("Ángulo:" + angulo);
 
         double rads = Math.toRadians(-1 * angulo);
-        double sin = Math.abs(Math.sin(rads)), cos = Math.abs(Math.cos(rads));
-        int w = sprite.getImagen().getWidth();
-        int h = sprite.getImagen().getHeight();
-        int newWidth = (int) Math.floor(w * cos + h * sin);
-        int newHeight = (int) Math.floor(h * cos + w * sin);
+        double sin = Math.sin(rads), cos = Math.cos(rads);
+        int w = original.getWidth();
+        int h = original.getHeight();
+        double newWidth = Math.abs(w * cos) + Math.abs(h * sin);
+        double newHeight = Math.abs(h * cos) + Math.abs(w * sin);
         System.out.println("Rotando: " + newWidth + ", " + newHeight);
 
-        BufferedImage rotated = new BufferedImage(newWidth, newHeight, sprite.getImagen().getType());
+        BufferedImage rotated = new BufferedImage((int) Math.floor(newWidth), (int) Math.floor(newHeight), sprite.getImagen().getType());
         Graphics2D g2d = rotated.createGraphics();
         AffineTransform at = new AffineTransform();
         at.translate((newWidth - w) / 2, (newHeight - h) / 2);
@@ -45,7 +45,7 @@ public class TransformacionRotacion extends Transformacion {
 
         at.rotate(rads, x, y);
         g2d.setTransform(at);
-        g2d.drawImage(sprite.getImagen(), 0, 0, null);
+        g2d.drawImage(original, 0, 0, null);
         g2d.dispose();
         sprite.setImagen(rotated);
     }
