@@ -42,6 +42,6 @@ public class TransformacionEscala extends Transformacion {
         g.drawImage(sprite.getImagen(), 0, 0, newWidth, newHeight, 0, 0, sprite.getImagen().getWidth(),
                 sprite.getImagen().getHeight(), null);
         g.dispose();
-        sprite.setImagen(resized);
+        //sprite.setImagen(resized);
     }
 }
